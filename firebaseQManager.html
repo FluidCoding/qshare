@@ -1,0 +1,57 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script>
+var myDataRef; 
+
+function loadFromFB(){
+	myDataRef.once('value', function(dataSnapshot){
+		$("#q").empty();
+		dataSnapshot.forEach(function(childSnapshot){
+			$("#q").append("<p>< " + childSnapshot.val().youtube + " ></p>");
+		});
+
+	});
+}
+
+function pushList(nList){
+	myDataRef.remove();
+	myDataRef.push({youtube: nList});
+}
+
+function pushId(){
+	var id = $('#videoId').val();
+	myDataRef.push({youtube: id});
+}
+
+function deletePlaylist()
+{
+	myDataRef.remove();
+	
+}
+
+function initFB(){
+	myDataRef =  new Firebase('https://youtubeq.firebaseio.com/playlist');
+	myDataRef.once('value', function(dataSnapshot) {
+		dataSnapshot.forEach(function(childSnapshot) {
+			console.log(childSnapshot.val().youtube);
+			$("#q").append("<p>< " + childSnapshot.val().youtube + " ></p>");
+		});
+	});
+}
+</script>
+</head>
+<body onload="initFB();">
+<p>Add Video By Id:</p>
+<input type="text" id="videoId"  >
+<input type="submit" onclick="pushId()" >
+<button id="refresh" onclick="loadFromFB()">Refresh</button>
+<button id="clearQ" onclick="deletePlaylist()">Clear Playlist</button>
+<p>List Of Video Id's...</p>
+<div id="q"></div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+@import "compass/css3";
+
+*{
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  font-family:arial;
+}
+body{
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-family: arial;
+}
+section{
+  height: 250px;
+  //padding-top:90px;
+  float: left;
+  width: 50%;
+  position: relative;
+}
+
+//=====================
+
+ .spinner{
+    width: 50px;
+    height: 50px;
+    @include border-radius(100%);
+    margin: auto;
+    position: absolute;
+   left: 0;right: 0;top: 0;bottom: 0;
+   margin: auto;
+
+ }
+
+.model-1{
+  background:#202020;
+  .spinner{
+    color: #f00;
+    @include animation(color-bubble 2s linear 0s infinite );
+    &:after, &:before{
+      content: '';
+      position: absolute;
+      left: 0;right: 0;top: 0;bottom: 0;
+      @include border-radius(100%);
+      @include box-shadow(0 0 0 3px);
+      @include animation(spinner-bubble 1.3s linear 0s infinite );
+      margin: auto;
+      width: 10px;
+      height: 10px;
+      opacity: 0;
+    }
+    &:before{
+       @include animation(spinner-bubble 1.3s linear 2s infinite );
+    }
+  }
+}
+.model-2{
+  background:#4B346F;
+  .spinner{
+    border:1px solid;
+    @include animation( rotate  1.3s linear 0s infinite, color-bubble 3s linear 0s infinite);
+     &:after{
+      content: '';
+      position: absolute;
+       width: 15px;
+       height: 15px;
+       background: #fff;
+       @include border-radius(100%);
+       @include animation(color-change 3s linear 0s infinite );
+       left: -5px;
+       top: 18px;
+     }
+  }
+}
+.model-3{
+  background:#BF1B21;
+  .spinner{
+    background: #fff;
+    height: 40px;
+    @include border-radius(0);
+    @include animation(rotateRct 1.2s ease-in-out infinite, color-change 1.3s ease-in-out infinite );
+  }
+}
+.model-4{
+  background:#FFA500;
+  .spinner{
+    border:5px solid rgba(255, 255, 255, .5);
+    border-bottom-color:#f00 ;
+     @include animation(rotate 2s linear 0s infinite);
+  }
+}
+.model-5{
+  background:#034BB5;
+  .spinner{
+    border:5px solid rgba(0, 0, 0, 0);
+    border-bottom-color:#19A5DF;
+     border-top-color:#19A5DF;
+     @include animation(rotate 1.5s linear 0s infinite);
+  }
+}
+.model-6{
+  background:#009200;
+  .spinner{
+    border:2px solid #19A5DF;
+    @include border-radius(0);
+    @include animation(rotate 3s infinite);
+    &:after, &:before{
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      width: 32px;
+      height: 32px;
+      border:2px solid #FEB825;
+      @include  animation(rotate 3s infinite reverse);
+    }
+    &:before{
+      border-color: #fff;
+       left: 10px;
+      top: 10px;
+      width: 22px;
+      height: 22px;
+      @include  animation(rotate 2s infinite)
+    }
+  }
+}
+.model-7{
+  background:#FF451C;
+  .spinner{
+    @include animation( rotate  1.3s linear 0s infinite, size 5s linear 0s infinite alternate);
+     &:after, &:before{
+      content: '';
+      position: absolute;
+       width: 15px;
+       height: 15px;
+       background: #fff;
+       @include border-radius(100%);
+       left: 0px;
+       top: 0px;
+       bottom: 0;
+       margin: auto;
+     }
+    &:before{
+      left: auto;
+      right: 0;
+    }
+
+  }
+}
+.model-8{
+  background:#C90463;
+  .spinner{
+    width: 100px;
+    height: 20px;
+    @include border-radius(0);
+    &:before{
+      content: '';
+      position: absolute;
+       width: 10px;
+       height:10px;
+       left: 0;
+      @include border-radius(100%);
+     @include  animation(shadowSize 2s ease-in infinite);
+      color: #fff;
+
+    }
+
+  }
+}
+.model-9{
+  background:#12846D;
+  .spinner{
+    &:after, &:before{
+      content: '';
+      position: absolute;
+      left: 0;right: 0;top: 0;bottom: 0;
+      margin: auto;
+      width: 30px;
+      height: 30px;
+       border:5px solid rgba(0,0,0,0);
+       border-bottom:5px solid #fff ;
+      @include border-radius(100%);
+      @include  animation(rotate 1s linear infinite );
+    }
+    &:before{
+      width: 40px;
+      height: 40px;
+      @include animation-direction(reverse);
+    }
+  }
+}
+.model-10{
+  background:#3D6AA2;
+
+  .spinner{
+    background: #fff;
+     overflow: hidden;
+     @include animation(color-change 3s linear 0s infinite ,shadow 1.3s linear 0s infinite, color-bubble 5s linear 0s infinite alternate, rotate 5s linear 0s infinite);
+
+  }
+}
+
+
+//======= Keyframes =======
+@include keyframes(spinner-bubble){
+  from{
+    width: 10px;
+    height: 10px;
+    opacity: .8;
+  }
+  to{
+     width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+}
+
+@include keyframes(color-bubble){
+  0%{color: #009DDC;}
+  33%{color: #50B949;}
+  66%{color: #EE2D24;}
+  100%{color: #FEB825;}
+}
+
+@include keyframes(color-change){
+  0%{background: #009DDC;}
+  33%{background: #50B949;}
+  66%{background: #EE2D24;}
+  100%{background: #FEB825;}
+}
+@include keyframes(rotate){
+    from {@include rotate(0deg);}
+    to {@include rotate(360deg);}
+}
+@include keyframes (rotateRct) {
+  0% {@include transform(perspective(120px) rotateX(0deg) rotateY(0deg))}
+  50% {@include transform(perspective(120px) rotateX(-180.1deg) rotateY(0deg))}
+  100% {@include transform(perspective(120px) rotateX(-180deg) rotateY(-179.9deg)) }
+}
+
+@include keyframes(size){
+    from { width: 70px; height: 70px;}
+    to {width: 30px; height: 30px;}
+}
+
+@include keyframes(shadow){
+    from { @include box-shadow( 0px 0 0 1px  inset)}
+    to {@include box-shadow( 50px 0 0 1px  inset )}
+}
+
+@include keyframes(shadowSize){
+  0% { @include box-shadow(15px 0 0 0, 30px 0 0 0 ,45px 0 0 0, 60px 0 0 0, 75px 0 0 0);}
+  20% { @include box-shadow(15px 0 0 5px, 30px 0 0 0 ,45px 0 0 0, 60px 0 0 0, 75px 0 0 0);}
+  40% { @include box-shadow(15px 0 0 0, 30px 0 0 5px ,45px 0 0 0, 60px 0 0 0, 75px 0 0 0);}
+  60% { @include box-shadow(15px 0 0 0, 30px 0 0 0 ,45px 0 0 5px, 60px 0 0 0, 75px 0 0 0);}
+  80% { @include box-shadow(15px 0 0 0, 30px 0 0 0 ,45px 0 0 0, 60px 0 0 5px, 75px 0 0 0);}
+  100% { @include box-shadow(15px 0 0 0, 30px 0 0 0 ,45px 0 0 0, 60px 0 0 0, 75px 0 0 5px);}
+}

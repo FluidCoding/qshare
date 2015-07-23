@@ -1,0 +1,343 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: .75em !important;
+  font-family: Arial !important;
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+}
+
+.fa{
+  cursor: pointer;
+}
+
+#toolbar{
+  width:35px;
+  height: 100%;
+  background-color: #1b1b1b;
+  position: fixed;
+  left: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#toolbar .fa, #resultsMenu .fa{
+  color: #777;
+  font-size: 1.5em;
+  padding: .4em;
+  background-color: rgba(255,255,255,0);
+  position: fixed;
+}
+#toolbar .fa:hover, #resultsMenu .fa:hover, #playerControls .fa:hover{
+  background-color: rgba(255,255,255,.2);
+}
+
+#submit{
+  bottom: 135px;
+}
+#delQueue{
+  bottom: 90px;
+}
+#queueButton{
+  bottom: 0px;
+}
+#resultsButton{
+  top: 0px;
+}
+#videoToggle{
+  left: 40px;
+}
+#playlistToggle{
+  left: 80px;
+}
+#userToggle{
+  left: 120px;
+}
+#expandResults{
+  left: 160px;
+}
+#results{
+    width:260px;
+    height: calc(100% - 65px - 135px  );
+    background-color: #050505;
+    left: 35px;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#resultsMenu{
+  background-color: #1b1b1b;
+  width :260px;
+  height: 35px;
+  bottom: 165px;
+  left: 35px;
+  position: fixed;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+#searchBar{
+  width: 100%;
+  height: 30px;
+  background-color: #0C0C0C;
+  bottom: 135px;
+  left: 35px;
+  position: fixed;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+#query{
+  color: #BBB;
+  font-size: 1.6em;
+  width: 300px;
+  background: none;
+  border: none;
+  padding: .2em;
+}
+#query:focus{
+  outline: 0;
+}
+#submit{
+  font-size: 1.25em;
+}
+#playerWrapper{
+  position: fixed;
+  right: 0;
+  width: calc(100% - 260px - 35px);
+  height: calc(100% - 30px - 135px);
+  background-color: #000;
+}
+
+#player{
+  width: 100%;
+  height: 100%;
+}
+
+#playerControls{
+  width:70%;
+  position:absolute;
+  bottom:0;
+  height: 27px;
+  z-index: 99;
+
+}
+#playerControls .fa{
+  color :#999;
+  font-size: 1.3em;
+  padding: .5em;
+}
+
+#play{
+  width: .7em;
+}
+
+
+#playerControlCover{
+  height:27px;
+  width:70%;
+  position:absolute;
+  bottom:0;
+
+}
+
+#playerControlCover .cover{
+  height: 23px;
+  width: 100%;
+  position:absolute;
+  bottom:0;
+  background-color: #1b1b1b;
+
+}
+
+#queueWrapper{
+  position: fixed;
+  bottom: 0;
+  left: 35px;
+  width: calc(100% - 35px);
+  height: 135px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  background-color: #111;
+}
+
+#queue{
+  overflow-y: hidden;
+  width: 3000px;
+}
+
+
+.isPlaying{
+  color: rgba(255,255,255,.9);
+  position: absolute;
+  top: 0;
+  left: .4em;
+  font-size: 6em !important;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.findRelated{
+  color: rgba(255,255,255,.75);
+  font-size: 1.75em !important;
+}
+
+.sortable-placeholder{
+  background-color: rgba(255,255,255,.025);
+  border-radius: 2px;
+  width: 120px;
+  height: 120px;
+  float: left;
+  margin: .2em;
+}
+
+.thumbButtonWrapper{
+  display: none;
+  width: 100%;
+  padding: .4em;
+  background-color: #222;
+  position: absolute;
+  top: 0;
+}
+
+.thumbButton{
+  height: 25px;
+  width: 25px;
+  float: left;
+  margin-right: .1em;
+  background-color: rgba(255,255,255,0);
+}
+.thumbButton:hover {
+  background-color: rgba(255,255,255,.2);
+}
+
+.thumb{
+  width: 100%;
+  margin-top: -10px;
+}
+#slider{
+  display: inline-block;
+  height: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #333 #333 #777 #333;
+  border-radius: 25px;
+  position: absolute;
+  width:120px;
+  margin-top:.45em;
+}
+#slider .ui-widget-header {
+  background: #030303 50% 50% repeat-x !important;
+  color: #222222 !important;
+  font-weight: bold;
+}
+#slider .ui-widget-content {
+  border: 1px solid #aaaaaa;
+  background: #070003 50% 50% repeat-x !important;
+  color: #222222 !important;
+}
+#slider .ui-slider-handle { 
+  background: #444;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin-top: .2em;
+}
+#slider .ui-slider-handle {
+
+}
+.sliderWrapper{
+  height:40px;
+  float: left;
+  width: auto;
+}
+
+.thumbWrapper{
+  width: 120px;
+  height: 70px;
+  overflow: hidden;
+  border: 2px solid black;
+  margin-bottom: .25em;
+}
+
+.item{
+  margin: 0;
+  float: left;
+  width: 120px;
+  background-color: rgba(255,255,255,.025);
+  height: 120px;
+  overflow:hidden;
+  position: relative;
+}
+
+.item:hover .thumbButtonWrapper{
+  display: inline-block;
+
+}
+.activeItem{
+  background-color: rgba(255,255,255,.5);
+}
+
+.item:hover{
+  background-color: rgba(255,255,255,.05);
+  cursor: pointer;
+}
+
+.titleOverlay{
+  color: #CCC;
+}
+
+.titleOverlay:hover{
+  height: auto;
+}
+
+.shadowGrad{
+  height: 80px;
+  width:260px;
+  position: fixed;
+  bottom:135px;
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+}
+
+.ui-widget-content {
+  border: none !important;
+  background: #111 !important;
+  color: #CCC !important;
+}
+
+.ui-state-focus{
+  border: 1px solid rgba(255,255,255,0) !important;
+  background: rgba(255,255,255,.2) !important;
+  color: #CCC !important;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.7);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(255,255,255, 0.1);
+  border-radius: 5px;
+}
