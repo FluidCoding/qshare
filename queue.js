@@ -2,17 +2,6 @@ var dataRef = new Firebase('https://youtubeq.firebaseio.com/queueList');
 var logging = 1;
 var queue;
 
-/*
-function QueueList()
-{
-	this.qDataRef; // = new Firebase('https://youtubeq.firebaseio.com/queueList');
-	this.refId = []; 
-	this.currentIndex = 0; 
-	this.titleText = [];
-	this.thumbnail = [];
-}
-*/
-
 var QueueList = {
 	// = new Firebase('https://youtubeq.firebaseio.com/queueList');
 	init: function(dRef){
@@ -95,13 +84,13 @@ function resolveVideoId(id){
 
 }
 
+//'use strict';
 $(function() {
 	writeLog("fb dref: " + dataRef);
     queue = QueueList.init(dataRef);
     writeLog("qL :" + queue);
-//	QueueList.init(dataRef);
 	initFireBase();
-	//queue.pushQueue();
+	dragula([document.getElementById('results'), document.getElementById('queue')]);
 });
 
 function devAddItem(){
@@ -111,3 +100,4 @@ function devAddItem(){
 					);
 	console.log("appending... queue is now: " + queue.getPushable());
 }
+

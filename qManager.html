@@ -4,9 +4,12 @@
 <title>Queue Manager</title>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script> <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="https://www.youtube.com/iframe_api"></script> 
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script src="queue.js"></script>
+	<script src="dragula.js"></script>
+
+	<link href='dragula.css' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 </head>
 <body>
 <p>Video ID</p>
@@ -18,5 +21,17 @@
 <button id="submit" onclick="devAddItem()">Submit</button>
 <p>Q: </p>
 <div id="QList"></div>
+
+<div id="wrapper">
+	<div id="results" class="container">
+		<div>Sup</div>
+		<div>Sup2</div>
+	</div>
+	<div id="queue" class="container">
+		<div>puS</div>
+		<div>puS2</div>
+	</div>
+</div>
 </body>
+	<script src="queue.js"></script>
 </html>
