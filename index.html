@@ -10,9 +10,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="font-awesome.css">
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    
+    <script src="dragula.js"></script>
+    <link href='dragula.css' rel='stylesheet' type='text/css' />
+
   </head>
   <body>
-
     <!--<div class="shadowGrad"></div>-->
     <div id="toolbar">
       <div class="fa fa-th-large" id="resultsButton"></div>
@@ -21,7 +24,7 @@
     <div class="fa fa-trash" id="delQueue" onclick="deleteQueue();"></div>
 
     </div>
-    <div id="results"></div>
+    <div id="results" class="container"></div>
     <div id="playerWrapper">
     </div>
     <div id="resultsMenu">
@@ -37,7 +40,7 @@
       <!--<button id="submit">Search</button>-->
     </div>
     <div id="queueWrapper">
-      <div id="queue">
+      <div id="queue" class="container">
       </div>
     </div>
     <script src="queue.js"></script>

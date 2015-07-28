@@ -23,6 +23,12 @@ var QueueList = {
 			this.thumbnail[i] + "\" />");
 	},
 	syncQueue: function(){
+		$("#queue").empty();
+		for(var i = 0; i < this.refId.length; i++){
+		$("#queue").append("<div>ID: " + this.refId[i] + " Title: " + 
+			this.titleText[i] + " " + 
+			"<img src='"+ this.thumbnail[i] + "'> </div>");
+		}
 	},
 	getPushable: function()
 	{
@@ -38,10 +44,10 @@ var QueueList = {
 		dataRef.push(this.getPushable());
 	},
 	set: function(val){
-		this.refId = val.refId;
-		this.titleText = val.titleText;
-		this.thumbnail = val.thumbnail;
-		this.currentIndex = val.currentIndex;
+		this.refId = val.id;
+		this.titleText = val.title;
+		this.thumbnail = val.img;
+		this.currentIndex = val.index;
 	},
 	appendItem: function(_elementId, _title, _thumbnail){
 		this.refId.push(_elementId);
@@ -62,12 +68,11 @@ function updateQueue(ss){
 
 	var key = ss.key();
 	var value = ss.val();	
-	writeLog("Updated Called." + value);
+	queue.set(value);
+	console.log(value);
 
-	//queue.set(value);	// does this remove methods of QueueList?
-//	queue.printQueue();
 	$("#QList").empty();
-//	$("#QList").append(queue.getPushable());
+	queue.syncQueue();
 }
 
 function loadPlaylistFromYT(){
@@ -86,11 +91,14 @@ function resolveVideoId(id){
 
 //'use strict';
 $(function() {
-	writeLog("fb dref: " + dataRef);
+	console.log("fb dref: " + dataRef);
     queue = QueueList.init(dataRef);
-    writeLog("qL :" + queue);
+    console.log("qL :" + queue);
 	initFireBase();
-	dragula([document.getElementById('results'), document.getElementById('queue')]);
+	dragula([document.getElementById('YTresults'), document.getElementById('queue')]).on('drop', function (el) {
+    	console.log(el + " MOVeD.");
+  });
+
 });
 
 function devAddItem(){

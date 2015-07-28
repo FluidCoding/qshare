@@ -7,11 +7,19 @@
     <script src="https://www.youtube.com/iframe_api"></script> 
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 	<script src="dragula.js"></script>
-
+	
 	<link href='dragula.css' rel='stylesheet' type='text/css' />
+	<link href='style.css' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
 </head>
 <body>
+<p>Search Youtube:</p>
+<input type="text" id="ytSearch" >
+<button id="submit" onclick="SearchYT()">Search</button>
+</br>
+
+
 <p>Video ID</p>
 <input type="text" id="videoId" >
 <p>Title Text</p>
@@ -19,19 +27,18 @@
 <p>Thumbnail</p>
 <input type="text" id="thumbnail" >
 <button id="submit" onclick="devAddItem()">Submit</button>
-<p>Q: </p>
 <div id="QList"></div>
 
+<p>Youtube Results: </p>
 <div id="wrapper">
-	<div id="results" class="container">
-		<div>Sup</div>
-		<div>Sup2</div>
+	<div id="YTresults" class="container">
 	</div>
+
+<p>Queue: </p>
 	<div id="queue" class="container">
-		<div>puS</div>
-		<div>puS2</div>
 	</div>
 </div>
 </body>
 	<script src="queue.js"></script>
+	<script src="search.js"></script>
 </html>
