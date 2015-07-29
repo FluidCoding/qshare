@@ -21,9 +21,8 @@ function SearchYT(){
 											var thumbnailURL = data.items[i].snippet.thumbnails.default.url;
 											var titleText = data.items[i].snippet.title;
 										 	
-									 		$("#YTresults").append("<div>ID: " + id + " Title: " + 
-												titleText + " " + 
-												"<img src='"+ thumbnailURL + "'> </div>");
+									 		$("#YTresults").append("<div id='youtubeItem'><p id='id'>" + id + "</p><p id='title'>" + 
+												titleText+ "</p>" + "<img src='"+ thumbnailURL + "'> </div>");
 										}
 									 });
 
