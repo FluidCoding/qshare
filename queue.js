@@ -1,7 +1,8 @@
 var dataRef = new Firebase('https://youtubeq.firebaseio.com/queueList');
 var logging = 1;
 var queue;
-
+var drake; // teh draggable
+dataRef.remove();
 var QueueList = {
 	// = new Firebase('https://youtubeq.firebaseio.com/queueList');
 	init: function(dRef){
@@ -54,6 +55,9 @@ var QueueList = {
 		this.titleText.push(_title);
 		this.thumbnail.push(_thumbnail);
 		this.pushQueue();
+	},
+	deleteQueue: function(){
+		dataRef.remove();
 	}
 }
 
@@ -63,6 +67,11 @@ function initFireBase(){
 	dataRef.on('child_added', updateQueue);
 }
 
+function clearQueue(){
+	queue.deleteQueue();
+	queue.syncQueue();
+	$("#queue").append("<div></div>")
+}
 function updateQueue(ss){
 	//clear prior queue
 
@@ -91,14 +100,32 @@ function resolveVideoId(id){
 
 //'use strict';
 $(function() {
-	console.log("fb dref: " + dataRef);
     queue = QueueList.init(dataRef);
     console.log("qL :" + queue);
 	initFireBase();
-	dragula([document.getElementById('YTresults'), document.getElementById('queue')]).on('drop', function (el) {
-    	console.log(el + " MOVeD.");
+	drake = dragula([document.getElementById('YTresults'), document.getElementById('queue')],  
+			{
+				accepts: function(el, target, source, sibling){
+					if(source.id == "queue" && target.id == "YTresults"){
+						return false;
+					}
+					if(source.id == target.id)
+						return true;
+					console.log(source.id);
+					console.log(target.id);
+/*					else if(source.id == "queue" && target.id == "queue")
+						return true;
+						*/
+					return true;
+				},
+				moves: function(el, container, handle){
+//					console.log("Moves: " container.)
+					return true;
+				}
+			}
+	   ).on('drop', function (el) {
+    	console.log(el);
   });
-
 });
 
 function devAddItem(){

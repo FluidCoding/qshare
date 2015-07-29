@@ -12,7 +12,7 @@ function SearchYT(){
 	var query = $("#ytSearch").val();
 	$.get(baseURL+'/search?part=snippet'+
 									 '&q='+query+
-									 '&maxResults=5'+
+									 '&maxResults=3'+
 									 '&type=video'+
 									 '&key='+key, function(data, status){
 									 	$("#YTresults").empty();	
